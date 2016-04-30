@@ -3,13 +3,13 @@ php:
 - 7.0
 deploy:
   provider: script
-  script: ./deploy.sh
+  script: "./deploy.sh"
   on:
     branch: master
     repo: rbas/test
 after_success:
-  - chmod 600 id_dsa
-  - mv id_dsa ~/.ssh/id_dsa
+- chmod 600 id_dsa
+- mv id_dsa ~/.ssh/id_dsa
 before_install:
 - openssl aes-256-cbc -K $encrypted_46c599ced800_key -iv $encrypted_46c599ced800_iv
   -in id_dsa.enc -out ~\/.ssh/id_dsa -d
